@@ -31,7 +31,6 @@
                         <div>
                             <label class="form-label text-white">Seleccione el operador que deseas procesar:</label>
                             <select class="form-select " aria-label="Default select example" id="selectOperador">
-                                <option selected>Seleccione</option>
                                 <option value="identidad">O.Puntual - Identidad</option>
                                 <option value="invNegativo">O.Puntual - Inverso Negativo</option>
                                 <option value="umbral">O.Puntual - Umbral</option>
@@ -48,15 +47,15 @@
                             <div class="row">
                                 <div class="pt-3 col-6 d-none " id="umbral1">
                                     <div class="row">
-                                        <label for="customRange3" class="form-label col-5">Valor Umbral 1:</label>
-                                        <label for="customRange3" class="form-label col-3" id="valueRango">0</label>
+                                        <label for="customRange3" class="form-label col-5 text-white">Valor Umbral 1:</label>
+                                        <label for="customRange3" class="form-label col-3 text-white" id="valueRango">0</label>
                                     </div>
                                     <input type="range" class="form-range" min="0" max="255" step="1" id="rangeUmbral" value="0">
                                 </div>
                                 <div class="pt-3 col-6 d-none" id="umbral2">
                                     <div class="row">
-                                        <label for="customRange3" class="form-label col-5">Valor Umbral 1:</label>
-                                        <label for="customRange3" class="form-label col-3" id="valueRango2">0</label>
+                                        <label for="customRange3" class="form-label col-5 text-white">Valor Umbral 2:</label>
+                                        <label for="customRange3" class="form-label col-3 text-white" id="valueRango2">0</label>
                                     </div>
                                     
                                     <input type="range" class="form-range" min="0" max="255" step="1" id="rangeUmbral" value="0">
@@ -69,7 +68,24 @@
                                 <label class="form-check-label text-white" for="flexCheckDefault">
                                   Resalte de border Canny
                                 </label>
-                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="pt-3 col-6 d-none" id="cannyumbral1">
+                                    <div class="row">
+                                        <label for="customRange3" class="form-label col-5 text-white">Border Canny Umbral min:</label>
+                                        <label for="customRange3" class="form-label col-3 text-white" id="valueUmbral1">0</label>
+                                    </div>
+                                    <input type="range" class="form-range" min="0" max="255" step="1" id="rangecanny1" value="0">
+                                </div>
+                                <div class="pt-3 col-6 d-none" id="cannyumbral2">
+                                    <div class="row">
+                                        <label for="customRange3" class="form-label col-5 text-white">Border Canny Umbral max:</label>
+                                        <label for="customRange3" class="form-label col-3 text-white" id="valueUmbral2">0</label>
+                                    </div>
+                                    
+                                    <input type="range" class="form-range" min="0" max="255" step="1" id="rangecanny2" value="0">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -93,7 +109,7 @@
             <div class="col-6 d-flex justify-content-center align-items-cente">
                 <div>
                     <h2 class="text-center text-white">Imagen procesada</h2>
-                    <button type="button" class="btn btn-info text-center w-100" id="btnEliminarImage">Eliminar Imagen Procesada</button>
+                    <button type="button" class="btn btn-info text-center w-100 my-4" id="btnEliminarImage">Eliminar Imagen Procesada</button>
                     <img id="imagenProcesada" src="{% static 'image/resultado.jpg' %}?t={{ timestamp }}" alt="Imagen seleccionada" class="img-fluid mt-3" style="max-width: 300px; display: none;">
                 </div>
                 
@@ -104,7 +120,8 @@
     <script>
         var imagenProcesadaUrl = "{% static 'image/resultado.jpg' %}";
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>
